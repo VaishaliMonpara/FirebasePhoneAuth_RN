@@ -60,3 +60,46 @@ The module provides a signInWithPhoneNumber method which accepts a phone number.
 
 **For More Info**
 https://rnfirebase.io/auth/phone-auth
+
+Add in your APP.js file
+
+var firebaseConfig = {
+    apiKey: "AIzaSyBEFAGXiMslrfRzPHVnbuaPj_vU_jbawiY",
+    authDomain: "fcmnotificationdemo-36e37.firebaseapp.com",
+    databaseURL: "https://fcmnotificationdemo-36e37.firebaseio.com",
+    projectId: "fcmnotificationdemo-36e37",
+    storageBucket: "fcmnotificationdemo-36e37.appspot.com",
+    messagingSenderId: "sender-id",
+    appId: "1:265701615074:android:72a5282ff943a7e02e05bb",
+    measurementId: "G-measurement-id",
+  };
+  
+  this.state =
+        {
+            isLoading: false,
+            confirm: ''
+        }
+        
+        async signInWithPhoneNumber(phoneNumber) {
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+         }else {
+            firebase.app();
+           // if already initialized, use that one
+         }
+        
+        const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+        this.setState({confirm: confirmation});
+      }
+      
+      
+      {
+                    !this.state.confirm ? 
+                    <Button
+                        title="Phone Number Sign In"
+                        onPress={() => this.signInWithPhoneNumber('+91 987654321')}
+                    /> : <Button
+                    title="UserLogged In Click for Logout"
+                    onPress={() => this.setState({confirm: ''})}
+                />
+                }
