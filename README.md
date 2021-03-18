@@ -60,9 +60,10 @@ The module provides a signInWithPhoneNumber method which accepts a phone number.
 
 **For More Info**
 https://rnfirebase.io/auth/phone-auth
+https://www.section.io/engineering-education/react-native-firebase-phone-authentication/
 
 Add in your APP.js file
-
+```
 var firebaseConfig = {
     apiKey: "AIzaSyBEFAGXiMslrfRzPHVnbuaPj_vU_jbawiY",
     authDomain: "fcmnotificationdemo-36e37.firebaseapp.com",
@@ -94,12 +95,15 @@ var firebaseConfig = {
       
       
       {
-                    !this.state.confirm ? 
-                    <Button
-                        title="Phone Number Sign In"
-                        onPress={() => this.signInWithPhoneNumber('+91 987654321')}
-                    /> : <Button
-                    title="UserLogged In Click for Logout"
-                    onPress={() => this.setState({confirm: ''})}
-                />
-                }
+          !this.state.confirm ? 
+          <Button
+              title="Phone Number Sign In"
+              onPress={() => this.signInWithPhoneNumber('+91 987654321')}
+          /> : 
+          <Button
+          title="UserLogged In Click for Logout"
+          onPress={() => this.setState({confirm: ''})}
+          />
+      }
+                
+                ```
